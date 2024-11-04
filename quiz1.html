@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Website</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/originals/db/34/d4/db34d40b271fb59477621550bf73ea0b.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: rgb(8, 2, 2);
+        }
+        .container {
+            background-color: rgba(32, 141, 139, 0.662);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .question {
+            margin-bottom: 20px;
+            transition: opacity 0.5s ease;
+        }
+        .hidden {
+            display: none;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+        }
+        #quiz-results {
+            margin-top: 20px;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        #quiz-results.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">How Far Can You Go With The Lame Jokes???</h1>
+        <div id="quiz-container" class="card p-4 shadow">
+            <form id="quiz-form">
+                <div id="questions">
+                    <!-- Question 1 -->
+                    <div class="question">
+                        <h5>1. What do you call fake spaghetti?</h5>
+                        <ul class="list-unstyled">
+                            <li><input type="radio" name="question1" value="C"> An impasta</li>
+                            <li><input type="radio" name="question1" value="A"> A spaghetti wannabe</li>
+                            <li><input type="radio" name="question1" value="B"> A noodle pretender</li>
+                            <li><input type="radio" name="question1" value="D"> A pasta fraud</li>
+                        </ul>
+                    </div>
+                    <!-- Question 2 -->
+                    <div class="question">
+                        <h5>2. What do you call an alligator in a vest?</h5>
+                        <ul class="list-unstyled">
+                            <li><input type="radio" name="question2" value="B"> An investigator</li>
+                            <li><input type="radio" name="question2" value="A"> A fancy gator</li>
+                            <li><input type="radio" name="question2" value="C"> A Gator with style</li>
+                            <li><input type="radio" name="question2" value="D"> A crocodile in disguise</li>
+                        </ul>
+                    </div>
+                    <div class="mb-3">
+                        <h5>3. Why did the coffee file a police report?</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <input type="radio" name="question3" id="q3a" value="A">
+                                <label for="q3a">A) It got mugged</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question3" id="q3b" value="B">
+                                <label for="q3b">B)  It was spilled</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question3" id="q3c" value="C">
+                                <label for="q3c">C) It lost its lid</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question3" id="q3d" value="D">
+                                <label for="q3d">D) It was too hot to handle</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mb-3">
+                        <h5>4. Why don't eggs tell jokes?</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <input type="radio" name="question4" id="q4a" value="A">
+                                <label for="q4a">A)  Because they prefer sunny-side up humor</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question4" id="q4b" value="B">
+                                <label for="q4b">B)  Because they're too fragile</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question4" id="q4c" value="C">
+                                <label for="q4c">C) Because they can't come up with good punchlines</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question4" id="q4d" value="D">
+                                <label for="q4d">D) Because they might crack up</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mb-3">
+                        <h5>5. Why can't you give Elsa a balloon?</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <input type="radio" name="question5" id="q5a" value="A">
+                                <label for="q5a">A)  Because she doesn't like parties</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question5" id="q5b" value="B">
+                                <label for="q5b">B)   Because she will let it go</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question5" id="q5c" value="C">
+                                <label for="q5c">C)  Because it will pop</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question5" id="q5d" value="D">
+                                <label for="q5d">D)  Because she's afraid of heights</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mb-3">
+                        <h5>6. Why don't seagulls fly over the bay?</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <input type="radio" name="question6" id="q6a" value="A">
+                                <label for="q6a">A)  Because they get tired</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question6" id="q6b" value="B">
+                                <label for="q6b">B)   Because they prefer the ocean</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question6" id="q6c" value="C">
+                                <label for="q6c">C)   Because then they’d be bagels</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question6" id="q6d" value="D">
+                                <label for="q6d">D)  Because it’s too far</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mb-3">
+                        <h5>7. What do you call a dinosaur that is sleeping?</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <input type="radio" name="question7" id="q7a" value="A">
+                                <label for="q7a">A) A slumber-saurus</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question7" id="q7b" value="B">
+                                <label for="q7b">B)    A snoozasaurus</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question7" id="q7c" value="C">
+                                <label for="q7c">C)  A dino-snore</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question7" id="q7d" value="D">
+                                <label for="q7d">D)   A napping reptile</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mb-3">
+                        <h5>8. Why did the chicken join a band?</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <input type="radio" name="question8" id="q8a" value="A">
+                                <label for="q8a">A)  Because it wanted to be famous</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question8" id="q8b" value="B">
+                                <label for="q8b">B)   Because it wanted to play guitar</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question8" id="q8c" value="C">
+                                <label for="q8c">C)    Because it loved music</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question8" id="q8d" value="D">
+                                <label for="q8d">D)   Because it had the drumsticks</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mb-3">
+                        <h5>9. Why did the bee get married?</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <input type="radio" name="question9" id="q9a" value="A">
+                                <label for="q9a">A)   Because he loved flowers</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question9" id="q9b" value="B">
+                                <label for="q9b">B)    Because he wanted to start a family</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question9" id="q9c" value="C">
+                                <label for="q9c">C)    Because he found his honey</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question9" id="q9d" value="D">
+                                <label for="q9d">D)   Because he was tired of being single</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mb-3">
+                        <h5>10. Why did the skeleton go to the party alone?</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <input type="radio" name="question10" id="q10a" value="A">
+                                <label for="q10a">A) Because he had no body to go with him</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question10" id="q10b" value="B">
+                                <label for="q10b">B)    Because he loves dancing</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question10" id="q10c" value="C">
+                                <label for="q10c">C)    Because he couldn’t find a date</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="question10" id="q10d" value="D">
+                                <label for="q10d">D)   Because he wanted to be spooky.</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-custom mt-4" onclick="submitQuiz()">Submit Quiz</button>
+            </form>
+            <div id="quiz-results" class="hidden">
+                <h3>Your Score</h3>
+                <p id="score" class="font-weight-bold"></p>
+                <p id="feedback" class="font-weight-bold"></p>
+                <button class="btn btn-secondary mt-3" onclick="restartQuiz()">restart</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const correctAnswers = {
+            1: 'C',
+            2: 'B',
+            3: 'A', 
+            4: 'D', 
+            5: 'B', 
+            6: 'C', 
+            7: 'C', 
+            8: 'D', 
+            9: 'C', 
+            10: 'A' 
+        };
+
+        function submitQuiz() {
+            let score = 0;
+            const totalQuestions = Object.keys(correctAnswers).length;
+            const form = document.getElementById('quiz-form');
+            const userAnswers = {};
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                userAnswers[i] = form[`question${i}`]?.value;
+            }
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                if (userAnswers[i] === correctAnswers[i]) {
+                    score++;
+                }
+            }
+
+            const scoreText = `Your score is ${score} out of ${totalQuestions}.`;
+            document.getElementById('score').textContent = scoreText;
+
+            // Provide feedback based on score with emojis
+            let feedbackText;
+            if (score === totalQuestions) {
+                feedbackText = "Amazing! You're a joke master! 🎉😂";
+            } else if (score >= totalQuestions / 2) {
+                feedbackText = "Good job! You have a great sense of humor! 😄👍";
+            } else {
+                feedbackText = "Keep trying! Practice makes perfect! 😅🙌";
+            }
+            document.getElementById('feedback').textContent = feedbackText;
+
+            const resultsDiv = document.getElementById('quiz-results');
+            resultsDiv.classList.remove('hidden');
+            resultsDiv.classList.add('visible');
+            document.getElementById('quiz-form').classList.add('hidden');
+        }
+
+        function restartQuiz() {
+            document.getElementById('quiz-results').classList.remove('visible');
+            setTimeout(() => {
+                document.getElementById('quiz-results').classList.add('hidden');
+                document.getElementById('quiz-form').classList.remove('hidden');
+                document.getElementById('quiz-form').reset();
+            }, 500); // Wait for the fade-out animation
+        }
+    </script>
+
+</body>
+</html>
